@@ -1,0 +1,16 @@
+.page-header
+  %h1= t 'Users'
+%table.table.table-striped
+  %thead
+    %tr
+      %th=t 'Username'
+      %th=t 'Email'
+      %th=t 'Last sign in'
+      %th=t 'Registered at'
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.username
+        %td= user.email
+        %td= user.last_sign_in_at
+        %td= l user.created_at
