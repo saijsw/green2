@@ -9,6 +9,9 @@ gem 'simpleconfig'
 # API
 # gem 'rabl'
 
+gem 'thin'
+gem 'unicorn'
+
 # ORM
 gem 'pg'
 
@@ -37,7 +40,6 @@ gem 'twitter-bootstrap-rails', github: 'diowa/twitter-bootstrap-rails', branch: 
 gem 'uglifier', '>= 1.3.0'
 
 group :production do
-  gem 'unicorn'
   gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
   gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
   # Performance and Exception management
@@ -55,7 +57,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'thin'
   gem 'bullet'
   gem 'better_errors'
   gem 'binding_of_caller'
