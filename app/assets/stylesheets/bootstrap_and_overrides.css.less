@@ -1,0 +1,26 @@
+/* ==========================================================================
+   Bootstrap and overrides
+   ========================================================================== */
+
+@import "twitter/bootstrap/bootstrap";
+
+body {
+  padding-top: 60px;
+}
+
+@import "twitter/bootstrap/responsive";
+
+/* Fontawesome Icons
+   ========================================================================== */
+
+@fontAwesomeEotPath: asset-url("fontawesome-webfont.eot");
+@fontAwesomeEotPath_iefix: asset-url("fontawesome-webfont.eot#iefix");
+@fontAwesomeWoffPath: asset-url("fontawesome-webfont.woff");
+@fontAwesomeTtfPath: asset-url("fontawesome-webfont.ttf");
+@fontAwesomeSvgPath: asset-url("fontawesome-webfont.svg#fontawesomeregular");
+@import "fontawesome/font-awesome";
+
+/* Overriding default variables and loading new ones
+   ========================================================================== */
+
+@import "stubs/variables_overrides.css.less";
