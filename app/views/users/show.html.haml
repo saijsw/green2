@@ -1,13 +1,12 @@
 -title @user.username.to_s + ' profile'
 .page-header
-  %h1= @user.username
+  %h1= @user.username + ' profile'
 %dl.dl-horizontal
   %dt
     %strong= t 'Email'
   %dd= @user.email
   %dt
     %strong= t 'last_sign_in_at'
-  %dd= @user.last_sign_in_at
-.form-actions
-  = link_to t('.back', :default => t("helpers.links.back")), users_path, :class => 'btn'
-  = link_to t('.edit', :default => t("helpers.links.edit")), edit_user_path(@user), :class => 'btn'
+  %dd= time_ago_in_words @user.last_sign_in_at
+%hr
+%h3 Accounts

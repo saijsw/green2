@@ -1,0 +1,27 @@
+= form_for(@transaction) do |f|
+  - if @transaction.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@transaction.errors.count, "error")
+        prohibited this transaction from being saved:
+      %ul
+        - @transaction.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :account_from
+    %br/
+    = f.number_field :account_from
+  .field
+    = f.label :account_to
+    %br/
+    = f.number_field :account_to
+  .field
+    = f.label :amount
+    %br/
+    = f.text_field :amount
+  .field
+    = f.label :notes
+    %br/
+    = f.text_field :notes
+  .actions
+    = f.submit

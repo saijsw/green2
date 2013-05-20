@@ -1,0 +1,21 @@
+%p
+  %strong User:
+  = @ad.user_id
+%p
+  %strong Title:
+  = @ad.title
+%p
+  %strong Description:
+  = @ad.description
+%p
+  %strong Offer:
+  = @ad.offer
+%p
+  %strong Category:
+  = @ad.category_id
+%p
+  %strong Expiration date:
+  = @ad.expiration_date
+= link_to 'Edit', edit_ad_path(@ad)
+|
+\#{link_to 'Back', ads_path}

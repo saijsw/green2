@@ -22,6 +22,7 @@ class AdsController < ApplicationController
   # POST /ads
   def create
     @ad = Ad.new(ad_params)
+    @ad.user = current_user
 
     if @ad.save
       redirect_to @ad, notice: 'Ad was successfully created.'
@@ -53,6 +54,6 @@ class AdsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def ad_params
-      params.require(:ad).permit(:user_id, :title, :description, :offer, :category_id, :expiration_date)
+      params.require(:ad).permit(:title, :description, :offer, :category_id, :expiration_date)
     end
 end
