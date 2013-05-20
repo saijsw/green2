@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me
   has_many :accounts
   has_many :transactions, :through => :accounts
+  has_many :ads
 
   validates :username, :presence => true, :length => {:minimum => 3, :maximum => 15}
 end

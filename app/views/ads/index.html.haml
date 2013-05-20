@@ -1,26 +1,14 @@
-%h1 Listing ads
-%table
+%h3 Offers / Requests
+%table.table.table-condensed
   %thead
     %tr
-      %th User
       %th Title
-      %th Description
       %th Category
-      %th Expiration date
-      %th
-      %th
-      %th
+      %th Created
   %tbody
     - @ads.each do |ad|
-      %tr
-        %td= ad.user_id
-        %td= ad.title
-        %td= ad.description
-        %td= ad.offer
+      %tr{:class => "#{ad.offer ? 'success' : 'warning'}"}
         %td= ad.category_id
-        %td= ad.expiration_date
-        %td= link_to 'Show', ad
-        %td= link_to 'Edit', edit_ad_path(ad)
-        %td= link_to 'Destroy', ad, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
+        %td=link_to ad.title, ad_path(ad)
+        %td Created by #{link_to ad.user.username, user_path(ad.user)} #{time_ago_in_words ad.created_at}
 = link_to 'New Ad', new_ad_path
