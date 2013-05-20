@@ -45,7 +45,8 @@ rerun.txt
 pickle-email-*.html
 .project
 
-
+# dotenv
+.env
 
 # Ignore Redis' dataset snapshot
 dump.rdb

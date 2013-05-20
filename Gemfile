@@ -55,6 +55,7 @@ group :development, :test do
   gem 'faker'
   gem 'pry'
   gem 'pry-rails'
+  gem 'dotenv-rails'
 end
 
 group :development do

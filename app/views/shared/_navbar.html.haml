@@ -3,7 +3,12 @@
     .container
       = link_to 'Green Money', root_path, class: 'brand'
       %ul.nav.pull-right
-        %li
-          =link_to t('Sign in'), new_user_session_path
-        %li
-          =link_to t('Sign up'), new_user_registration_path
+        -if user_signed_in?
+          %li=link_to current_user.email, user_path(current_user)
+          %li=link_to t('Change password'), edit_user_registration_path
+          %li=link_to t('Logout'), destroy_user_session_path, :method => :delete
+        -else
+          %li
+            =link_to t('Sign in'), new_user_session_path
+          %li
+            =link_to t('Sign up'), new_user_registration_path
