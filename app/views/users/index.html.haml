@@ -5,15 +5,15 @@
     %tr
       %th=t 'Username'
       %th=t 'Email'
-      %th=t 'Last sign in'
       %th=t 'Registered at'
+      %th=t 'Last sign in'
   %tbody
     - @users.each do |user|
       %tr
         %td=link_to user.username, user_path(user)
         %td= user.email
-        %td= time_ago_in_words user.last_sign_in_at
         %td= time_ago_in_words user.created_at
+        %td= time_ago_in_words user.last_sign_in_at
         %td
           =link_to 'Send money', '#', class: 'btn btn-mini btn-success'
           =link_to 'View listenings', '#', class: 'btn btn-mini'
