@@ -17,9 +17,9 @@
       .controls
         = f.text_area :description
     .control-group
-      = f.label :offer, class: 'control-label'
+      = f.label 'Type', class: 'control-label'
       .controls
-        = f.check_box :offer
+        = select_tag('ad[offer]', options_for_select([['Offer', true], ['Request', false]]))
     .control-group
       = f.label :category_id, class: 'control-label'
       .controls

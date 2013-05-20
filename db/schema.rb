@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130519195608) do
+ActiveRecord::Schema.define(version: 20130520140053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(version: 20130519195608) do
     t.boolean  "offer"
     t.integer  "category_id"
     t.date     "expiration_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", force: true do |t|
+    t.integer  "parent_id"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
