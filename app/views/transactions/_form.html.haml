@@ -1,27 +1,29 @@
-= form_for(@transaction) do |f|
-  - if @transaction.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@transaction.errors.count, "error")
-        prohibited this transaction from being saved:
-      %ul
-        - @transaction.errors.full_messages.each do |msg|
-          %li= msg
-  .field
-    = f.label :account_from
-    %br/
-    = f.number_field :account_from
-  .field
-    = f.label :account_to
-    %br/
-    = f.number_field :account_to
-  .field
-    = f.label :amount
-    %br/
-    = f.text_field :amount
-  .field
-    = f.label :notes
-    %br/
-    = f.text_field :notes
-  .actions
-    = f.submit
+.well
+  = form_for(@transaction, :html => {class: 'form-horizontal' }) do |f|
+    - if @transaction.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@transaction.errors.count, "error")
+          prohibited this transaction from being saved:
+        %ul
+          - @transaction.errors.full_messages.each do |msg|
+            %li= msg
+    .control-group
+      = f.label :account_from, class: 'control-label'
+      .controls
+        = f.number_field :account_from
+    .control-group
+      = f.label :user_to, 'Send to user', class: 'control-label'
+      .controls
+        = f.text_field :user_to
+    .control-group
+      = f.label :amount, class: 'control-label'
+      .controls
+        = f.number_field :amount, class: 'span2'
+    .control-group
+      = f.label :notes, class: 'control-label'
+      .controls
+        = f.text_field :notes
+    .control-group
+      .controls
+        = f.submit 'Submit', class: 'btn btn-primary'
