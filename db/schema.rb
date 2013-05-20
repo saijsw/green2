@@ -11,17 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130520140053) do
+ActiveRecord::Schema.define(version: 20130520155301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "accounts", force: true do |t|
     t.integer  "user_id"
-    t.decimal  "balance",     precision: 10, scale: 2
+    t.decimal  "balance",      precision: 10, scale: 2
     t.integer  "currency_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "credit_limit", precision: 10, scale: 2
   end
 
   create_table "ads", force: true do |t|
