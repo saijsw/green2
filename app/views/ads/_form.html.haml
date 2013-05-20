@@ -19,7 +19,10 @@
     .control-group
       = f.label 'Type', class: 'control-label'
       .controls
-        = select_tag('ad[offer]', options_for_select([['Offer', true], ['Request', false]]))
+        = f.radio_button(:offer, "true")
+        = f.label(:offer_true, "Offer")
+        = f.radio_button(:offer, "false")
+        = f.label(:offer_false, "Request")
     .control-group
       = f.label :category_id, class: 'control-label'
       .controls
