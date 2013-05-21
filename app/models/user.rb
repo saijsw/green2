@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  after_create :create_account
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -15,5 +16,11 @@ class User < ActiveRecord::Base
   has_many :transactions, :through => :accounts
   has_many :ads
 
-  validates :username, :presence => true, :length => {:minimum => 3, :maximum => 15}
+  validates :username, :presence => true, :uniqueness => true, :length => {:minimum => 3, :maximum => 15}
+
+  private
+
+  def create_account
+    Account.create(user_id: self.id, currency_id: 1, credit_limit: 0, balance: 0)
+  end
 end

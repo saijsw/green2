@@ -3,7 +3,7 @@ class TransactionsController < ApplicationController
 
   # GET /transactions
   def index
-    @transactions = Transaction.all
+    @transactions = current_user.transactions
   end
 
   # GET /transactions/1
@@ -13,6 +13,7 @@ class TransactionsController < ApplicationController
   # GET /transactions/new
   def new
     @transaction = Transaction.new
+    @accounts = current_user.accounts
   end
 
   # GET /transactions/1/edit
@@ -22,8 +23,23 @@ class TransactionsController < ApplicationController
   # POST /transactions
   def create
     @transaction = Transaction.new(transaction_params)
+    account_from = Account.where(id: params[:transaction]['account_from']).first
+    user_to = User.where(username: params[:transaction]['user_to']).first
+    account_to = Account.where(user_id: user_to.id, currency_id: account_from.currency_id).first
+    if account_to == nil
+      # create account for receiver
+      account_to = Account.create(user_id: user_to.id, currency_id: account_from.currency_id, balance: 0, credit_limit: 0)
+      @transaction.account_to = account_to.id
+    else
+      @transaction.account_to = account_to.id
+    end
 
     if @transaction.save
+      #change balances
+      account_from.balance =- @transaction.amount
+      account_from.save
+      account_to.balance =+ @transaction.amount
+      account_to.save
       redirect_to @transaction, notice: 'Transaction was successfully created.'
     else
       render action: 'new'
@@ -39,12 +55,6 @@ class TransactionsController < ApplicationController
     end
   end
 
-  # DELETE /transactions/1
-  def destroy
-    @transaction.destroy
-    redirect_to transactions_url, notice: 'Transaction was successfully destroyed.'
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_transaction
@@ -53,6 +63,6 @@ class TransactionsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def transaction_params
-      params.require(:transaction).permit(:account_from, :account_to, :amount, :notes)
+      params.require(:transaction).permit(:account_from, :user_to, :amount, :notes)
     end
 end
