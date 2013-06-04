@@ -10,6 +10,12 @@ class UsersController < ApplicationController
   def show
   end
 
+# GET /users/1/ads
+  def ads
+    @ads = current_user.ads
+    render 'ads/index'
+  end
+
 
   # GET /users/1/edit
   def edit
