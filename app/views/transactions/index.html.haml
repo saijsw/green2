@@ -5,19 +5,15 @@
       %th Account from
       %th Account to
       %th Amount
+      %th Date
       %th Notes
-      %th
-      %th
-      %th
   %tbody
     - @transactions.each do |transaction|
       %tr
         %td= transaction.account_from
         %td= transaction.account_to
         %td= transaction.amount
+        %td= time_ago_in_words transaction.created_at
         %td= transaction.notes
-        %td= link_to 'Show', transaction
-        %td= link_to 'Edit', edit_transaction_path(transaction)
-        %td= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' }
 %br/
-= link_to 'New Transaction', new_transaction_path, class: 'btn'
+= link_to 'New Transaction', new_transaction_path, class: 'btn btn-success'
