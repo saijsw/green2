@@ -5,7 +5,7 @@
       -if user_signed_in?
         %ul.nav
           %li=link_to 'All members', users_path
-          %li=link_to "Offers / Requests (#{@ads_count})", ads_path
+          %li=link_to "Marketplace (#{@ads_count})", ads_path
           %li=link_to 'Send money', new_transaction_path
         %ul.nav.pull-right
           / %li
