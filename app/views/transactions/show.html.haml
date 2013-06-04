@@ -1,15 +1,16 @@
 %p
-  %strong Account from:
-  = @transaction.account_from
+  %strong User from:
+  = link_to User.find(@transaction.account_from), user_path(@transaction.account_from)
 %p
-  %strong Account to:
-  = @transaction.account_to
+  %strong User to:
+  = link_to User.find(@transaction.account_to), user_path(@transaction.account_to)
 %p
   %strong Amount:
   = @transaction.amount
 %p
+  %strong Date:
+  = @transaction.created_at
+%p
   %strong Notes:
   = @transaction.notes
-= link_to 'Edit', edit_transaction_path(@transaction)
-|
-\#{link_to 'Back', transactions_path}
+= link_to 'Back', transactions_path

@@ -19,8 +19,13 @@ class TransactionsController < ApplicationController
   # POST /transactions
   def create
     @transaction = Transaction.new(transaction_params)
-    account_from = Account.where(id: params[:transaction]['account_from']).first
+    account_from = current_user.accounts.where(id: params[:transaction]['account_from']).first
     user_to = User.where(username: params[:transaction]['user_to']).first
+    if user_to.nil?
+      flash[:error] = 'Invalid user. Please give a valid username.'
+      redirect_to :action => 'new'
+      return
+    end
     account_to = Account.where(user_id: user_to.id, currency_id: account_from.currency_id).first
     if account_to == nil
       # create account for receiver
