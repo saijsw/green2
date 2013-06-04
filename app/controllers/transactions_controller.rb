@@ -16,10 +16,6 @@ class TransactionsController < ApplicationController
     @accounts = current_user.accounts
   end
 
-  # GET /transactions/1/edit
-  def edit
-  end
-
   # POST /transactions
   def create
     @transaction = Transaction.new(transaction_params)
@@ -43,15 +39,6 @@ class TransactionsController < ApplicationController
       redirect_to @transaction, notice: 'Transaction was successfully created.'
     else
       render action: 'new'
-    end
-  end
-
-  # PATCH/PUT /transactions/1
-  def update
-    if @transaction.update(transaction_params)
-      redirect_to @transaction, notice: 'Transaction was successfully updated.'
-    else
-      render action: 'edit'
     end
   end
 
