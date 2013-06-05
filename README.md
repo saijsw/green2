@@ -11,3 +11,15 @@ Ruby on Rails 4.x Time Banking (LETS) software. Lightweight alternative for [Cyc
 * Cyclos 3 import
 * Mobile payment support
 * Consistent API
+
+
+**Heroku deploy instructions**
+
+* clone the repo `git clone git://github.com/green-money/gm.git && cd gm`
+* edit the config/config.yml file
+* Create new heroku app `heroku create`
+* Generate new secret key for the app `rake secret`
+* Add the secret key `heroku config:add SECRET_TOKEN='generated_key'`
+* `heroku run rake db:migrate`
+* `heroku run rake db:seeds`
+* Add email support `heroku addons:add mandrill:starter`
