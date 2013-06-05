@@ -16,5 +16,7 @@
 %p
   %strong Expiration date:
   = @ad.expiration_date
-= link_to 'Edit', edit_ad_path(@ad)
-= link_to 'Back', ads_path
+
+= link_to 'Back', ads_path, class: 'btn'
+= link_to 'Edit', edit_ad_path(@ad), class: 'btn btn-warning' if @ad.user == current_user
+= link_to 'Delete', @ad, :confirm =>'Are you sure?', :method => :delete, class: 'btn btn-danger' if @ad.user == current_user

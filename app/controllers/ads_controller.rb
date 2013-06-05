@@ -1,5 +1,7 @@
+
 class AdsController < ApplicationController
   before_action :set_ad, only: [:show, :edit, :update, :destroy]
+  before_action :own_ad, only: [:edit, :update, :destroy]
 
   # GET /ads
   def index
@@ -55,5 +57,10 @@ class AdsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def ad_params
       params.require(:ad).permit(:title, :description, :offer, :category_id, :expiration_date)
+    end
+
+    # user can edit only his own ads
+    def own_ad
+      redirect_to(ad_path(@ad), alert: 'You can edit only your own ads.') unless @ad.user == current_user
     end
 end
