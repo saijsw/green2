@@ -5,6 +5,7 @@
 * Private messages
 * Image uploads for ads
 * Avatars
+* invite only system (in config.yml)
 
 ## Other
 

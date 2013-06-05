@@ -1,4 +1,4 @@
-Not production ready!
+Not production ready! Check the TODOS.md if you wanna help.
 
 ## Green money
 
@@ -11,7 +11,6 @@ Ruby on Rails 4.x Time Banking (LETS) software. Lightweight alternative for [Cyc
 * Cyclos 3 import
 * Mobile payment support
 * Consistent API
-
 
 **Heroku deploy instructions**
 
