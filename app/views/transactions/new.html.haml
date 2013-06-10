@@ -11,10 +11,6 @@
           - @transaction.errors.full_messages.each do |msg|
             %li= msg
     .control-group
-      = f.label :account_from, class: 'control-label'
-      .controls
-        = f.collection_select :account_from, @accounts, :id, :balance_with_currency
-    .control-group
       = f.label :user_to, 'Send to user', class: 'control-label'
       .controls
         = f.text_field :user_to

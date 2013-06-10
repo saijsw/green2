@@ -14,23 +14,23 @@ class TransactionsController < ApplicationController
   # GET /transactions/new
   def new
     @transaction = Transaction.new
-    @accounts = current_user.accounts
   end
 
   # POST /transactions
   def create
     @transaction = Transaction.new(transaction_params)
-    account_from = current_user.accounts.where(id: params[:transaction]['account_from']).first
+    account_from = current_user.account
+    @transaction.account_from = account_from.id
     user_to = User.where(username: params[:transaction]['user_to']).first
     if user_to.nil?
       flash[:error] = 'Invalid user. Please give a valid username.'
       redirect_to :action => 'new'
       return
     end
-    account_to = Account.where(user_id: user_to.id, currency_id: account_from.currency_id).first
+    account_to = Account.where(user_id: user_to.id).first
     if account_to == nil
       # create account for receiver
-      account_to = Account.create(user_id: user_to.id, currency_id: account_from.currency_id, balance: 0, credit_limit: 0)
+      account_to = Account.create(user_id: user_to.id, currency_id: 1, balance: 0, credit_limit: APP_CONFIG['default_credit_limit'])
       @transaction.account_to = account_to.id
     else
       @transaction.account_to = account_to.id
