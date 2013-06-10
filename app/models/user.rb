@@ -25,6 +25,6 @@ class User < ActiveRecord::Base
   private
 
   def create_account
-    Account.create(user_id: self.id, currency_id: 1, credit_limit: 0, balance: 0)
+    Account.create(user_id: self.id, balance: 0)
   end
 end

@@ -22,3 +22,7 @@ Ruby on Rails 4.x Time Banking (LETS) software. Lightweight alternative for [Cyc
 * `heroku run rake db:migrate`
 * `heroku run rake db:seeds`
 * Add email support `heroku addons:add mandrill:starter`
+
+**Donation**
+
+Donations are welcone to [1ErcSeqE6pdhAW67rgTgy2EJo1uMCZjiWn](bitcoin:1ErcSeqE6pdhAW67rgTgy2EJo1uMCZjiWn) bitcoin address to support ongoing development of Green Money.

@@ -1,3 +1,4 @@
 class Currency < ActiveRecord::Base
-  has_many :accounts
+  #we don't use multi currency support yet
+  #has_many :accounts
 end

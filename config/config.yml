@@ -1,2 +1,6 @@
 site_name: Green Money
+currency_name: green money
+currency_code: gm
+system_email: info@zoldpenz.com
+default_credit_limit: 1000
 mailchimp_list_id: 
