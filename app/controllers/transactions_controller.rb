@@ -3,7 +3,7 @@ class TransactionsController < ApplicationController
 
   # GET /transactions
   def index
-    @transactions = current_user.transactions
+    @transactions = Transaction.where("account_from = ? OR account_to = ?", current_user.account.id, current_user.account.id )
   end
 
   # GET /transactions/1

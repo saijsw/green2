@@ -7,4 +7,8 @@ class Transaction < ActiveRecord::Base
   validates :account_from, presence: true
   validates :account_to, presence: true
   validates_numericality_of :amount, :greater_than => 0
+
+  def amount_with_currency
+    "#{amount} #{APP_CONFIG['currency_code']}"
+  end
 end

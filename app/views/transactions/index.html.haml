@@ -1,18 +1,20 @@
 %h1 Listing transactions
-%table
+%table.table.table-striped
   %thead
     %tr
-      %th Account from
-      %th Account to
+      %th #
+      %th User from
+      %th User to
       %th Amount
       %th Date
       %th Notes
   %tbody
     - @transactions.each do |transaction|
       %tr
-        %td= transaction.account_from
-        %td= transaction.account_to
-        %td= transaction.amount
+        %td= transaction.id
+        %td= link_to Account.find(transaction.account_from).user.username, Account.find(transaction.account_from).user
+        %td= link_to Account.find(transaction.account_to).user.username, Account.find(transaction.account_to).user
+        %td= transaction.amount_with_currency
         %td= time_ago_in_words transaction.created_at
         %td= transaction.notes
 %br/
