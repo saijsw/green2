@@ -9,5 +9,6 @@
     %strong= t 'last_sign_in_at'
   %dd= time_ago_in_words @user.last_sign_in_at unless @user.last_sign_in_at.nil?
 %hr
-%h3 Balances
-= @user.account.balance_with_currency
+%h3 Accounts
+%p Balance: #{@user.account.balance_with_currency}
+%p Credit limit: #{@user.account.credit_limit}
