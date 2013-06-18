@@ -26,5 +26,6 @@
         %ul.nav.pull-right
           %li
             =link_to t('Sign in'), new_user_session_path
-          %li
-            =link_to t('Sign up'), new_user_registration_path
+          - if ENV['INVITE_ONLY'] == 0
+            %li
+              =link_to t('Sign up'), new_user_registration_path
