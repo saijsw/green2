@@ -1,5 +1,6 @@
 ## For alpha version
 
+* add security log for all balance changes
 * Create db seeds: default currency && default tree categories
 * Tree categories
 * Private messages

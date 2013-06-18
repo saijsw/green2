@@ -10,3 +10,4 @@
   %dd= time_ago_in_words @user.last_sign_in_at unless @user.last_sign_in_at.nil?
 %hr
 %h3 Balances
+= @user.account.balance_with_currency
