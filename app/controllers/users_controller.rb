@@ -17,17 +17,17 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit
-  end
+  # def edit
+  # end
 
-  # PATCH/PUT /users/1
-  def update
-    if @user.update(user_params)
-      redirect_to @user, notice: 'User was successfully updated.'
-    else
-      render action: 'edit'
-    end
-  end
+  # # PATCH/PUT /users/1
+  # def update
+  #   if @user.update(user_params)
+  #     redirect_to @user, notice: 'User was successfully updated.'
+  #   else
+  #     render action: 'edit'
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
