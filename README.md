@@ -8,7 +8,7 @@ Ruby on Rails 4.x Time Banking (LETS) software. Lightweight alternative for [Cyc
 
 * Out-of-box [Ripple gateway](https://ripple.com) support (trading over communities)
 * Easy and free heroku deployment
-* Cyclos 3 import
+* Cyclos 3 import tool
 * Mobile payment support
 * Consistent API
 
