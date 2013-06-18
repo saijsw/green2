@@ -1,6 +1,6 @@
 class Account < ActiveRecord::Base
   belongs_to :user
-  before_save :set_default_currency
+  before_create :set_default_currency
   #belongs_to :currency
   has_many :transaction, class_name: 'Transaction', foreign_key: 'account_to'
   #has_many :account_from, class_name: 'Transaction', foreign_key: 'account_from'
@@ -11,6 +11,7 @@ class Account < ActiveRecord::Base
     "#{balance} #{APP_CONFIG['currency_code']}"
   end
 
+private
   def set_default_currency
     self.currency_id = 1
     self.credit_limit = APP_CONFIG['default_credit_limit']
