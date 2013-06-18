@@ -39,11 +39,6 @@ class TransactionsController < ApplicationController
     end
 
     if @transaction.save
-      #change balances
-      account_from.balance = account_from.balance - @transaction.amount
-      account_from.save
-      account_to.balance = account_to.balance + @transaction.amount
-      account_to.save
       redirect_to @transaction, notice: 'Transaction was successfully created.'
     else
       render action: 'new'
