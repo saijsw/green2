@@ -1,4 +1,5 @@
 class Transaction < ActiveRecord::Base
+  paginates_per 50
   belongs_to :account, class_name: 'Account', foreign_key: 'account_from'
   #belongs_to :account, class_name: 'Account', foreign_key: 'account_to'
   attr_accessible :account_from, :accounts_to, :amount, :notes

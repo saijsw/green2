@@ -27,6 +27,7 @@ gem 'nokogiri'
 gem 'resque', require: 'resque/server' # Resque web interface
 gem 'rest-client'
 gem 'acts_as_tree', github: 'amerine/acts_as_tree'
+gem 'kaminari'
 
 # Assets
 gem 'coffee-rails', '~> 4.0.0'

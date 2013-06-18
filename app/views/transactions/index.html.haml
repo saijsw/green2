@@ -17,5 +17,7 @@
         %td= transaction.amount_with_currency
         %td= time_ago_in_words transaction.created_at
         %td= transaction.notes
+
+= paginate @transactions
 %br/
 = link_to 'New Transaction', new_transaction_path, class: 'btn btn-success'

@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
+  paginates_per 25
   after_create :create_account
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
   devise :registerable if ENV['INVITE_ONLY'] == '0'
 
   # Setup accessible (or protected) attributes for your model
