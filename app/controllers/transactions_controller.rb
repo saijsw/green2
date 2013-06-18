@@ -9,6 +9,8 @@ class TransactionsController < ApplicationController
 
   # GET /transactions/1
   def show
+    @account_from = Account.find(@transaction.account_from).user
+    @account_to = Account.find(@transaction.account_to).user
   end
 
   # GET /transactions/new

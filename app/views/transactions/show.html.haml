@@ -1,9 +1,9 @@
 %p
   %strong User from:
-  = link_to User.find(@transaction.account_from), user_path(@transaction.account_from)
+  = link_to @account_from, user_path(@account_from)
 %p
   %strong User to:
-  = link_to User.find(@transaction.account_to), user_path(@transaction.account_to)
+  = link_to @account_to, user_path(@account_to)
 %p
   %strong Amount:
   = @transaction.amount
