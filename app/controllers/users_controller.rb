@@ -16,7 +16,6 @@ class UsersController < ApplicationController
     render 'ads/index'
   end
 
-
   # GET /users/1/edit
   def edit
   end
@@ -28,12 +27,6 @@ class UsersController < ApplicationController
     else
       render action: 'edit'
     end
-  end
-
-  # DELETE /users/1
-  def destroy
-    @user.destroy
-    redirect_to users_url, notice: 'User was successfully destroyed.'
   end
 
   private

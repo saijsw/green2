@@ -7,6 +7,6 @@
   %dd= @user.email
   %dt
     %strong= t 'last_sign_in_at'
-  %dd= time_ago_in_words @user.last_sign_in_at unless user.last_sign_in_at.nil?
+  %dd= time_ago_in_words @user.last_sign_in_at unless @user.last_sign_in_at.nil?
 %hr
-%h3 Accounts
+%h3 Balances
